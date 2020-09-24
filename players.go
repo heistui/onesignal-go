@@ -28,9 +28,9 @@ type Player struct {
 	DeviceModel       string            `json:"device_model"`
 	AdID              string            `json:"ad_id"`
 	Tags              map[string]string `json:"tags"`
-	LastActive        int               `json:"last_active"`
+	LastActive        int64             `json:"last_active"`
 	AmountSpent       float32           `json:"amount_spent"`
-	CreatedAt         int               `json:"created_at"`
+	CreatedAt         int64             `json:"created_at"`
 	InvalidIdentifier bool              `json:"invalid_identifier"`
 	BadgeCount        int               `json:"badge_count"`
 	ExternalUserID    string            `json:"external_user_id,omitempty"`
@@ -51,10 +51,10 @@ type PlayerRequest struct {
 	SessionCount      int               `json:"session_count,omitempty"`
 	Tags              map[string]string `json:"tags,omitempty"`
 	AmountSpent       float32           `json:"amount_spent,omitempty"`
-	CreatedAt         int               `json:"created_at,omitempty"`
+	CreatedAt         int64             `json:"created_at,omitempty"`
 	Playtime          int               `json:"playtime,omitempty"`
 	BadgeCount        int               `json:"badge_count,omitempty"`
-	LastActive        int               `json:"last_active,omitempty"`
+	LastActive        int64             `json:"last_active,omitempty"`
 	TestType          int               `json:"test_type,omitempty"`
 	NotificationTypes string            `json:"notification_types,omitempty"`
 	Long              float64           `json:"long,omitempty"`
