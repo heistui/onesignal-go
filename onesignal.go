@@ -74,6 +74,30 @@ func NewClient(httpClient *http.Client) *Client {
 	return c
 }
 
+func NewClientWithKey(httpClient *http.Client, userKey string, appKey string) *Client {
+	if httpClient == nil {
+		httpClient = http.DefaultClient
+	}
+
+	baseURL, err := url.Parse(defaultBaseURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	c := &Client{
+		BaseURL: baseURL,
+		Client:  httpClient,
+	}
+
+	c.Apps = &AppsService{client: c}
+	c.Players = &PlayersService{client: c}
+	c.Notifications = &NotificationsService{client: c}
+	c.UserKey = userKey
+	c.AppKey = appKey
+
+	return c
+}
+
 // NewRequest creates an API request. path is a relative URL, like "/apps". The
 // value pointed to by body is JSON encoded and included as the request body.
 // The AuthKeyType will determine which authorization token (APP or USER) is
