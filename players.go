@@ -33,6 +33,7 @@ type Player struct {
 	CreatedAt         int               `json:"created_at"`
 	InvalidIdentifier bool              `json:"invalid_identifier"`
 	BadgeCount        int               `json:"badge_count"`
+	ExternalUserID    string            `json:"external_user_id,omitempty"`
 }
 
 // PlayerRequest represents a request to create/update a player.
@@ -56,6 +57,10 @@ type PlayerRequest struct {
 	LastActive        int               `json:"last_active,omitempty"`
 	TestType          int               `json:"test_type,omitempty"`
 	NotificationTypes string            `json:"notification_types,omitempty"`
+	Long              float64           `json:"long,omitempty"`
+	Lat               float64           `json:"lat,omitempty"`
+	Country           string            `json:"country,omitempty"`
+	ExternalUserID    string            `json:"external_user_id,omitempty"`
 }
 
 // PlayerListOptions specifies the parameters to the PlayersService.List method
